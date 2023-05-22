@@ -1,0 +1,24 @@
+#-------------------------------------- dataset -----------------------------------------#
+dataset: "uci"
+n_feature: 9
+len_sw: 128
+n_class: 6
+
+target_domain: 1
+n_domains: 4
+n_target_domains: 1
+
+#------------------------------------ training -------------------------------------------#
+batch_size: 180
+# n_epoch: 100
+seed: 10
+interval_validate: 25
+out_path: './logs'
+save_model: True
+
+#-------------------------------------- model -------------------------------------------#
+model: 'cnn'
+res: False
+resume: './ckpt'
+
+
