@@ -1,7 +1,6 @@
 from data_processing import data_process_uci, data_process_oppo,  data_process_unimib 
 from models.cnn import CNN_choose
 from models.cnn_mix import MixCNN_choose
-from models.deepconvlstm import DeepConvLSTM_choose
 from models.adnn import adnn_choose
 
 
@@ -9,18 +8,6 @@ from models.adnn import adnn_choose
 def get_model(args):
     if args.model == 'cnn':
         model = CNN_choose(dataset = args.dataset, res=False)
-        return model
-    if args.model == 'resnet':
-        model = CNN_choose(dataset = args.dataset, res=True)
-        return model
-    if args.model == 'cnn_mix':
-        model = MixCNN_choose(dataset = args.dataset, res=args.res)
-        return model
-    elif args.model == 'deepconvlstm':
-        model = DeepConvLSTM_choose(dataset = args.dataset)
-        return model
-    elif args.model == 'adnn':
-        model = adnn_choose(dataset = args.dataset)
         return model
     else:
         print('not exist this model')
