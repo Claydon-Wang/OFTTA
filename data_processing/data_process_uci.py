@@ -17,7 +17,7 @@ from sklearn.model_selection import StratifiedShuffleSplit
 def format_data_x(datafile):
     x_data = None
     for item in datafile:
-        item_data = np.loadtxt(item, dtype=np.float)
+        item_data = np.loadtxt(item, dtype=np.float32)
         if x_data is None:
             x_data = np.zeros((len(item_data), 1))
         x_data = np.hstack((x_data, item_data))

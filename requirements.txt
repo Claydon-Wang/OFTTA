@@ -1,5 +1,4 @@
 art==5.9
-autoattack @ git+https://github.com/fra31/auto-attack.git@a39220048b3c9f2cca9a4d3a54604793c68eca7e
 backcall==0.2.0
 brotlipy==0.7.0
 certifi==2023.5.7
@@ -56,7 +55,6 @@ pytz==2023.3
 PyWavelets==1.4.1
 PyYAML==6.0
 requests==2.25.1
-robustbench @ git+https://github.com/RobustBench/robustbench.git@2d630bc9e8d1cf50d46a4dda65fd36850e3ef769
 scikit-image==0.20.0
 scikit-learn==1.2.2
 scipy==1.9.1
