@@ -10,7 +10,6 @@ n_target_domains: 1
 
 #------------------------------------ training ------------------------------------------#
 batch_size: 1000
-# n_epoch: 100
 seed: 10
 interval_validate: 25
 out_path: './logs'

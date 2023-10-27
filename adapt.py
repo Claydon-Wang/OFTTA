@@ -27,9 +27,9 @@ def validate(args, model, val_loader):
     with torch.no_grad():
         for batch_idx, (image, target, domain) in enumerate(val_loader):
 
-            image = image.cuda()   #(B, 1, 128, 9)
-            target = target.cuda() # 6 class
-            domain = domain.cuda() # 5 domain
+            image = image.cuda()   
+            target = target.cuda() 
+            domain = domain.cuda()
 
             output = model(image)
             if isinstance(output, tuple):
@@ -40,14 +40,9 @@ def validate(args, model, val_loader):
             total_correct += prediction.eq(target.data.view_as(prediction)).sum()
             total += prediction.shape[0]
 
-            # ent = softmax_entropy(output)
-            # ent_list.append(ent)
 
     acc = float(total_correct) / total
 
-    # ent_list = [item for sublist in ent_list for item in sublist]
-    # avg_ent = sum(ent_list) / len(ent_list)
-    # print('\ncurrent entropy is : %f', avg_ent)
 
 
     return acc
@@ -139,14 +134,10 @@ def main():
 
 
     origin_acc = validate(args=args, model=base_model, val_loader=target_loader)
-    # record_str = '\nOrigin Accuracy: %f' % (origin_acc)
-    # print(record_str)
 
     model = get_adaptation(args, base_model)
 
-
     adapt_acc = validate(args=args, model=model, val_loader=target_loader)
-
 
     record_str = '\nSource Accuracy: %f,Adapt Accuracy: %f' % (origin_acc, adapt_acc)
     print(record_str)

@@ -16,11 +16,11 @@ def setup_norm(args, model):
     The statistics are measured independently for each batch;
     no running average or other cross-batch estimation is used.
     """
-    norm_model = norm.NORM(args, model)
+    tta_model = norm.NORM(args, model)
     # logger.info(f"model for adaptation: %s", model)
     stats, stat_names = norm.collect_stats(model)
     # logger.info(f"stats for adaptation: %s", stat_names)
-    return norm_model
+    return tta_model
 
 def setup_tent(args, model):
     """Set up tent adaptation.
@@ -32,11 +32,11 @@ def setup_tent(args, model):
     model = tent.configure_model(model)
     params, param_names = tent.collect_params(model)
     optimizer = setup_optimizer(args, params)
-    tent_model = tent.Tent(args, model, optimizer,
+    tta_model = tent.Tent(args, model, optimizer,
                            steps=1,
                            episodic=False)
 
-    return tent_model
+    return tta_model
 
 def setup_pl(args, model):
     """Set up tent adaptation.
@@ -48,11 +48,11 @@ def setup_pl(args, model):
     model = pl.configure_model(model)
     params, param_names = pl.collect_params(model)
     optimizer = setup_optimizer(args, params)
-    tent_model = pl.PL(args, model, optimizer,
+    tta_model = pl.PL(args, model, optimizer,
                            steps=1,
                            episodic=False)
 
-    return tent_model
+    return tta_model
 
 def setup_shot(args, model):
     """Set up tent adaptation.
@@ -64,11 +64,11 @@ def setup_shot(args, model):
     model = shot.configure_model(model)
     params, param_names = shot.collect_params(model)
     optimizer = setup_optimizer(args, params)
-    tent_model = shot.SHOT(args, model, optimizer,
+    tta_model = shot.SHOT(args, model, optimizer,
                            steps=1,
                            episodic=False)
 
-    return tent_model
+    return tta_model
 
 
 def setup_sar(args, model):
@@ -82,41 +82,41 @@ def setup_sar(args, model):
     params, param_names = sar.collect_params(model)
     base_optimizer = torch.optim.SGD
     optimizer = sar.SAM(params, base_optimizer, lr= args.lr, momentum=0.9)
-    sar_model = sar.SAR(args, model, optimizer,
+    tta_model = sar.SAR(args, model, optimizer,
                            steps=1,
                            episodic=False)
 
-    return sar_model
+    return tta_model
 
 def setup_t3a(args, model):
 
     model = t3a.configure_model(model)
     params, param_names = t3a.collect_params(model)
     optimizer = setup_optimizer(args, params)
-    t3a_model = t3a.t3a(args, model, optimizer,
+    tta_model = t3a.t3a(args, model, optimizer,
                            steps=1,
                            episodic=False)
-    return t3a_model
+    return tta_model
 
 def setup_tast(args, model):
 
     model = tast.configure_model(model)
     params, param_names = tast.collect_params(model)
     optimizer = setup_optimizer(args, params)
-    t3a_model = tast.TAST(args, model, optimizer,
+    tta_model = tast.TAST(args, model, optimizer,
                            steps=1,
                            episodic=False)
-    return t3a_model
+    return tta_model
 
 def setup_tast_bn(args, model):
 
     model = tast_bn.configure_model(model)
     params, param_names = tast_bn.collect_params(model)
     optimizer = setup_optimizer(args, params)
-    t3a_model = tast_bn.TAST_BN(args, model, optimizer,
+    tta_model = tast_bn.TAST_BN(args, model, optimizer,
                            steps=1,
                            episodic=False)
-    return t3a_model
+    return tta_model
 
 
 def setup_oftta(args, model):
@@ -124,11 +124,11 @@ def setup_oftta(args, model):
     model = oftta.configure_model(model)
     params, param_names = oftta.collect_params(model)
     optimizer = setup_optimizer(args, params)
-    t3a_model = oftta.OFTTA(args, model, optimizer,
+    tta_model = oftta.OFTTA(args, model, optimizer,
                            steps=1,
                            episodic=False)
 
-    return t3a_model
+    return tta_model
 
 def setup_optimizer(args, params):
     """Set up optimizer for tent adaptation.

@@ -1,16 +1,6 @@
-#---------------------------------- dataset -----------------------------------------#
-# dataset: unimib
-# n_feature: 3
-# len_sw: 151
-# n_class: 17
-
-# target_domain: 1
-# n_domains: 4
-# n_target_domains: 1
-
 #------------------------------------ training -------------------------------------------#
 # batch_size: 128
-n_epoch: 100
+# n_epoch: 100
 seed: 10
 interval_validate: 25
 out_path: './logs'
