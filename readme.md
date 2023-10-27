@@ -1,4 +1,4 @@
-## Demo for OFTTA reproduction 
+## Optimization-Free Test-Time Adaptation for Cross-Person Activity Recognition
 
 #### Installation:
 Please create and activate the following conda envrionment.
