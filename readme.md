@@ -11,7 +11,7 @@ pip install -r requirements.txt
 ```
 
 #### HAR Dataset
-Three datasets (UCI-HAR, Opportunity, and UniMiB-SHAR) are utilized in the experiments. The pre-processed outcome can be downloaded from [here](https://drive.google.com/drive/folders/1Y8jLalh2IFCf0lcG8bivTpTylbkdeoNr?usp=sharing). The datasets is adopt from [GILE](https://drive.google.com/drive/folders/1Y8jLalh2IFCf0lcG8bivTpTylbkdeoNr?usp=sharing). Please save datasets under folder `./data`. 
+Three datasets (UCI-HAR, Opportunity, and UniMiB-SHAR) are utilized in the experiments. The pre-processed outcome can be downloaded from [here](https://drive.google.com/drive/folders/1Y8jLalh2IFCf0lcG8bivTpTylbkdeoNr?usp=sharing). The datasets is adopt from [GILE](https://github.com/Hangwei12358/cross-person-HAR). Please save datasets under folder `./data`. 
 
 #### Pre-trained Model
 Since test-time adaptation needs pre-trained on source domains. We provide our used model in Table 4. You can download the model from [here](https://drive.google.com/drive/folders/1_GR6W0va5kd25aU2n21myKfhTY17V3F3?usp=share_link). Please save datasets under folder `./ckpt`. If you want to train your model from scratch, you can refer to code for [generalizable HAR](https://github.com/Claydon-Wang/DG_HAR). 
